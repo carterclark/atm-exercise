@@ -1,5 +1,12 @@
-## Next.js App Router Course - Starter
 
-This is the starter template for the Next.js App Router Course. It contains the starting code for the dashboard application.
-
-For more information, see the [course curriculum](https://nextjs.org/learn) on the Next.js Website.
+# Building and running locally
+- have node version 18.7.0+ installed
+- cd to project directory and enter `npm install`
+- Create `.env` in root directory with following attributes
+``` 
+POSTGRES_USER='user'
+POSTGRES_PASSWORD='password'
+POSTGRES_DB='challenge'
+PGDATA='/data/postgres'
+  ```
+- enter `npm run dev`
