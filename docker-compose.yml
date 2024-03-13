@@ -1,18 +1,24 @@
-version: "1"
+version: "3"
 services:
-  db:
-    container_name: atm_db
-    build: ./postgres
-    environment:
-      POSTGRES_DB: ${POSTGRES_DB}
-      POSTGRES_USER: ${POSTGRES_USER}
-      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
-      PGDATA: ${PGDATA}
-    volumes:
-      - ./init-db.sql:/docker-entrypoint-initdb.d/init.sql
+  # db:
+  #   container_name: atm_db
+  #   build: ./postgres
+  #   environment:
+  #     POSTGRES_DB: ${POSTGRES_DB}
+  #     POSTGRES_USER: ${POSTGRES_USER}
+  #     POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+  #     PGDATA: ${PGDATA}
+  #   volumes:
+  #     - ./init-db.sql:/docker-entrypoint-initdb.d/init.sql
+  #   ports:
+  #     - "5432:5432"
+  #   restart: unless-stopped
+  nextjs:
+    build: .
     ports:
-      - "5432:5432"
-    restart: unless-stopped
+      - '3000:3000'
+    environment:
+      - NODE_ENV=production
 volumes:
   db:
     external: true
