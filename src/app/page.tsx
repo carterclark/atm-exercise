@@ -1,7 +1,47 @@
-import Image from "next/image";
-import styles from "./page.module.css";
+import Image from 'next/image';
+import styles from './page.module.css';
+import FullPageGrid from '@/components/FullPageGrid';
+import {
+  Card,
+  CardBody,
+  CardHeader,
+  Divider,
+  GridItem,
+} from '@chakra-ui/react';
 
 export default function Home() {
+  return (
+    <main className={styles.main}>
+      <FullPageGrid>
+        <Card
+          gridColumnStart={{ base: 1 }}
+          gridColumnEnd={{ base: 5, md: 9, xl: 13 }}
+          gridRowStart={{ base: 1 }}
+          gridRowEnd={{ base: 2 }}
+          borderRadius={'1px'}
+        >
+          Grid Item - Title
+        </Card>
+
+        {/* "What is this site?" note */}
+        <Card
+          gridColumnStart={{ base: 1, md: 1, xl: 1 }}
+          gridColumnEnd={{ base: 5, md: 5, xl: 6 }}
+          gridRowStart={{ base: 2, md: 2, xl: 2 }}
+          gridRowEnd={{ base: 5, md: 3, xl: 5 }}
+          borderRadius={'1px'}
+        >
+          <CardHeader fontSize={'20px'}>What is this site?</CardHeader>
+          <Divider />
+          <CardBody>{'stickyNoteText'}</CardBody>
+        </Card>
+      </FullPageGrid>
+    </main>
+  );
+}
+
+//This is the old home page
+function old_Home() {
   return (
     <main className={styles.main}>
       <div className={styles.description}>
@@ -15,7 +55,7 @@ export default function Home() {
             target="_blank"
             rel="noopener noreferrer"
           >
-            By{" "}
+            By{' '}
             <Image
               src="/vercel.svg"
               alt="Vercel Logo"
