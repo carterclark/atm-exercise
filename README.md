@@ -7,6 +7,7 @@
 POSTGRES_USER='user'
 POSTGRES_PASSWORD='password'
 POSTGRES_DB='postgres-db'
-PGDATA='/data/postgres'
+PGDATA='/var/lib/postgresql/data/pgdata'
   ```
 - enter `npm run dev`
+- Go to http://localhost:3000
