@@ -6,7 +6,7 @@
 ``` 
 POSTGRES_USER='user'
 POSTGRES_PASSWORD='password'
-POSTGRES_DB='challenge'
+POSTGRES_DB='postgres-db'
 PGDATA='/data/postgres'
   ```
 - enter `npm run dev`

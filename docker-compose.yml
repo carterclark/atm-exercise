@@ -19,6 +19,9 @@ services:
       - '3000:3000'
     environment:
       - NODE_ENV=production
+    restart: always
+    depends_on:
+      - db
 volumes:
   pgdata: {}
   db:
