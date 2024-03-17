@@ -1,6 +1,9 @@
 version: "3"
 services:
   db:
+    build:
+      context: .
+      dockerfile: Dockerfile.db
     container_name: postgres_con
     image: postgres
     restart: always
@@ -12,13 +15,13 @@ services:
       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
       PGDATA: ${PGDATA}
     volumes:
-      - pgdata:/var/lib/postgresql/data
+      - ./scripts/init.sql:/docker-entrypoint-initdb.d/init.sql
   nextjs:
-    build: .
+    build:
+      context: .
+      dockerfile: Dockerfile.node
     ports:
       - '3000:3000'
-    environment:
-      - NODE_ENV=production
     restart: always
     depends_on:
       - db
